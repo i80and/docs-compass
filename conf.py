@@ -5,9 +5,11 @@
 #
 # This file is execfile()d with the current directory set to its containing dir.
 
+import base64
 import sys
 import os.path
 import datetime
+import glob
 
 project_root = os.path.join(os.path.abspath(os.path.dirname(__file__)))
 sys.path.append(project_root)
@@ -65,17 +67,9 @@ extlinks = {
 }
 
 intersphinx_mapping = {}
-
-try:
-    for i in intersphinx_libs:
-        intersphinx_mapping[i['name']] = ( i['url'], os.path.join(conf.paths.projectroot,
-                                                              conf.paths.output,
-                                                              i['path']))
-except:
-    for i in intersphinx_libs:
-        intersphinx_mapping[i.name] = ( i.url, os.path.join(conf.paths.projectroot,
-                                                              conf.paths.output,
-                                                              i.path))
+for path in glob.glob(os.path.join(conf.paths.projectroot, conf.paths.output, '*.inv')):
+    name, encoded_url = os.path.splitext(os.path.basename(path))[0].split('.', 1)
+    intersphinx_mapping[name] = (str(base64.b64decode(encoded_url), 'utf-8'), path)
 
 
 languages = [

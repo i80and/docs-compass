@@ -1,0 +1,8 @@
+[submodule "docs-tools"]
+	path = docs-tools
+	url = https://github.com/mongodb/docs-tools.git
+	branch = master
+[submodule "source/images/docs-assets"]
+	path = source/images/compass
+	url = https://github.com/mongodb/docs-assets.git
+	branch = compass

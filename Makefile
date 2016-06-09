@@ -6,17 +6,22 @@ STAGING_BUCKET=docs-mongodb-org-staging
 PRODUCTION_BUCKET=docs-mongodb-org-prod
 PREFIX=compass
 
-.PHONY: help stage fake-deploy deploy
+.PHONY: help build stage fake-deploy deploy
 
 help:
 	@echo 'Targets'
 	@echo '  help         - Show this help message'
+	@echo '  build        - Build Compass documentation'
 	@echo '  stage        - Host online for review'
 	@echo '  fake-deploy  - Create a fake deployment in the staging bucket'
 	@echo '  deploy       - Deploy to the production bucket'
 	@echo ''
 	@echo 'Variables'
 	@echo '  ARGS         - Arguments to pass to mut-publish'
+
+build:
+	mut-intersphinx --update=./config/intersphinx.yaml
+	mut-build
 
 stage:
 	mut-publish build/${GIT_BRANCH}/html ${STAGING_BUCKET} --prefix=${PREFIX} --stage ${ARGS}
