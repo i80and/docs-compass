@@ -74,7 +74,7 @@ Typing the query in the query bar
 
 You can type MongoDB queries into the query bar of
 Compass. These queries are executed as find only, and must be
-valid MongoDB syntax. 
+valid MongoDB syntax.
 
 .. figure:: /images/compass/query-bar.png
   :figwidth: 740px
@@ -157,7 +157,7 @@ For more information about execution plans, please see the
 
 New in Compass Beta 1.3: visualize explain stages
 in a tree format. Each stage of the pipeline appears as a node
-on the tree. This makes sharded cluster outputs 
+on the tree. This makes sharded cluster outputs
 easier to understand and visualize.
 
 .. figure:: /images/compass/query-plan4.png

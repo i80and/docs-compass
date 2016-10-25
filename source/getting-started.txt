@@ -1,3 +1,5 @@
+.. include:: /includes/templates/steps.rst
+
 ===============
 Getting Started
 ===============
@@ -54,4 +56,69 @@ prompt you to install .NET.
 Connect Compass to MongoDB
 --------------------------
 
-.. include:: /includes/steps/starting-compass.rst
+.. steps::
+
+   steps:
+     - title: Run and connect to mongod
+       body: |
+         Once Compass is running, an initial connection dialog appears:
+
+         .. figure:: /images/compass/connect-to-host.png
+           :figwidth: 626px
+
+         The information requested is as follows:
+
+         ``Hostname:`` The hostname of the machine where ``mongod`` is
+         running.
+
+         ``Port:`` The port on which ``mongod`` is running.
+
+         ``Authentication:`` Select an authentication mechanism to connect
+         to the target host.
+
+         Supported auth mechanisms:
+
+         - MongoDB-CR
+         - SCRAM-SHA-1
+         - Kerberos
+         - LDAP
+
+         ``SSL:`` Select whether Compass should connect to the target host
+         via SSL or not.
+
+         ``SSH tunnel:`` Select whether Compass should connect to a MongoDB
+         cluster via SSH tunnel. If selected, choose either a password or
+         an identity file to provide authentication.
+
+         ``Favorite Name (Optional):`` A name for the
+         connection. (When you use Compass in the future,
+         previous connections appear in the left pane of this window
+         under Favorites).
+
+         .. figure:: /images/compass/favorite-connections.png
+
+         The above example shows a dialog window for a connection to
+         a MongoDB server with authentication enabled.
+
+         When the connection information is complete, click
+         the Connect button to launch the main Compass window.
+
+         .. figure:: /images/compass/select-collection.png
+
+     - title: Select a collection
+       body: |
+         Use the left pane to select a collection to examine.
+
+         .. figure:: /images/compass/select-database.png
+
+         After you select a collection, Compass begins
+         analysis and shows the results.
+         Note that the example below is specific to the selected collection.
+
+         .. figure:: /images/compass/sample-results.png
+
+         .. note::
+           If the initial document analysis is slow, Compass
+           will prompt you within 30 seconds and ask if you want
+           to continue or quit.
+
